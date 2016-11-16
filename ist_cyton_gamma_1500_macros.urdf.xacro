@@ -41,6 +41,7 @@
       <inertial>
         <mass value="100.0"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
+        
         <inertia ixx="1.1027" iyy="1.1027" izz="1.1027"
                   ixy="0" ixz="0" iyz="0"/>
       </inertial>
@@ -50,7 +51,7 @@
       <parent link="${prefix}base_link" />
       <child link="${prefix}shoulder_roll" />
       <origin xyz="0 0 0.05315" rpy="0 0 0" />
-      <limit lower="-2.618" upper="2.618" effort="100.0" velocity="1.0" />
+      <limit lower="-2.5509" upper="2.5585" effort="100.0" velocity="1.0" />
       <axis xyz="0 0 1" />
     </joint>
 
@@ -79,7 +80,7 @@
       <parent link="${prefix}shoulder_roll" />
       <child link="${prefix}shoulder_pitch" />
       <origin xyz="0.0205 0 0.12435" rpy="0 0 0" />
-      <limit lower="-1.8326" upper="1.8326" effort="100.0" velocity="1.0" />
+      <limit lower="-1.707" upper="1.6379" effort="100.0" velocity="1.0" />
       <axis xyz="1 0 0" />
     </joint>
 
@@ -108,7 +109,7 @@
       <parent link="${prefix}shoulder_pitch" />
       <child link="${prefix}shoulder_yaw" />
       <origin xyz="-0.0215 -0.0205 0.1255" rpy="0 0 0" />
-      <limit lower="-1.8326" upper="1.8326" effort="100.0" velocity="1.0" />
+      <limit lower="-1.5459" upper="1.73" effort="100.0" velocity="1.0" />
       <axis xyz="0 -1 0" />
     </joint>
 
@@ -137,7 +138,7 @@
       <parent link="${prefix}shoulder_yaw" />
       <child link="${prefix}elbow_pitch" />
       <origin xyz="0.018 0.0206 0.1158" rpy="0 0 0" />
-      <limit lower="-1.8326" upper="1.8326" effort="100.0" velocity="1.0" />
+      <limit lower="-1.6072" upper="1.6149" effort="100.0" velocity="1.0" />
       <axis xyz="1 0 0" />
     </joint>
 
@@ -166,7 +167,7 @@
       <parent link="${prefix}elbow_pitch" />
       <child link="${prefix}elbow_yaw" />
       <origin xyz="-0.0171 -0.018 0.09746" rpy="0 0 0" />
-      <limit lower="-1.8326" upper="1.8326" effort="100.0" velocity="1.0" />
+      <limit lower="-1.8757" upper="1.4615" effort="100.0" velocity="1.0" />
       <axis xyz="0 -1 0" />
     </joint>
 
@@ -195,7 +196,7 @@
       <parent link="${prefix}elbow_yaw" />
       <child link="${prefix}wrist_pitch" />
       <origin xyz="0.02626 0.018 0.0718" rpy="0 0 0" />
-      <limit lower="-1.8326" upper="1.8326" effort="100.0" velocity="1.0" />
+      <limit lower="-1.5766" upper="1.5382" effort="100.0" velocity="1.0" />
       <axis xyz="-1 0 0" />
     </joint>
 
@@ -224,7 +225,7 @@
       <parent link="${prefix}wrist_pitch" />
       <child link="${prefix}ist_gripper_mount" />
       <origin xyz="-0.026255 0 0.051425" rpy="0 0 0" />
-      <limit lower="-2.61799" upper="2.61799" effort="100.0" velocity="1.0" />
+      <limit lower="-2.5279" upper="2.5355" effort="100.0" velocity="1.0" />
       <axis xyz="0 0 1" />
     </joint>
 
@@ -253,6 +254,8 @@
       <parent link="${prefix}ist_gripper_mount" />
       <child link="${prefix}gripper_finger1" />
       <origin xyz="-0.0331 -0.03515 0.098" rpy="${M_PI/2} 0 ${M_PI/2}" />
+      <!-- the following value are for rviz visualization purposes only, real gripper values are : -2.8347, -1.3157 /-->
+      <!-- those values will be normaliezd and republished as sensor_msgs from gripper controller node /-->
       <limit lower="-0.08" upper="0.5" effort="100.0" velocity="1.0" />
       <axis xyz="0 0 1" />
     </joint>
@@ -295,7 +298,6 @@
         </geometry>
       </visual>
       <collision>
-        <!--origin xyz="-0.003 0.05 0.015"/-->
         <origin xyz="-0.003 0.05 0.015"/>
         <geometry>
           <box size="0.04 0.14 0.04"/>
