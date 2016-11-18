@@ -195,7 +195,7 @@
     <joint name="${prefix}joint5" type="revolute">
       <parent link="${prefix}elbow_yaw" />
       <child link="${prefix}wrist_pitch" />
-      <origin xyz="0.02626 0.018 0.0718" rpy="0 0 0" />
+      <origin xyz="-0.02626 0.018 0.0718" rpy="0 0 ${M_PI}" />
       <limit lower="-1.5766" upper="1.5382" effort="100.0" velocity="1.0" />
       <axis xyz="-1 0 0" />
     </joint>
@@ -224,7 +224,7 @@
     <joint name="${prefix}joint6" type="revolute">
       <parent link="${prefix}wrist_pitch" />
       <child link="${prefix}ist_gripper_mount" />
-      <origin xyz="-0.026255 0 0.051425" rpy="0 0 0" />
+      <origin xyz="-0.026255 0 0.051425" rpy="0 0 ${M_PI/2}" />
       <limit lower="-2.5279" upper="2.5355" effort="100.0" velocity="1.0" />
       <axis xyz="0 0 1" />
     </joint>
