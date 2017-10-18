@@ -311,27 +311,25 @@
       </inertial>
     </link>
 
-    <xacro:if value="${virtual_ee}"> <!-- virtual end-effector -->
-      <joint name="${prefix}virtual_endeffector_joint" type="fixed">
-        <parent link="${prefix}ist_gripper_mount" />
-        <child link="${prefix}virtual_endeffector" />
-        <origin xyz="-0.002316 0.0079 0.079425" rpy="0 0 0" />
-      </joint>
+    <joint name="${prefix}virtual_endeffector_joint" type="fixed">
+      <parent link="${prefix}ist_gripper_mount" />
+      <child link="${prefix}virtual_endeffector" />
+      <origin xyz="0.0 0.0 0.17" rpy="0 0 0" />
+    </joint>
 
-      <link name="${prefix}virtual_endeffector">
-        <visual>
-          <origin xyz="0 0 0" rpy="0 0 0" />
-          <geometry>
-            <sphere radius="0.002" />
-          </geometry>
-          <material name="grey">
-            <color rgba="0.7 0.7 0.7 0.8" />
-          </material>
-        </visual>
-      </link>
-    </xacro:if>
+    <link name="${prefix}virtual_endeffector">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <sphere radius="0.002" />
+        </geometry>
+        <material name="grey">
+          <color rgba="0.7 0.7 0.7 0.8" />
+        </material>
+      </visual>
+    </link>
   </xacro:macro>
-
+  
   <gazebo>
     <plugin name="joint_state_publisher"
             filename="libgazebo_ros_joint_state_publisher.so">
