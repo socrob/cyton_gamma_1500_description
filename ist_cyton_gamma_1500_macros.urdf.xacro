@@ -375,4 +375,10 @@
   <!-- joint6 -->
   <xacro:arm_transmission_macro joint_name="left_arm_joint6" />
 
+  <!-- gripper joint 1 -->
+  <xacro:arm_transmission_macro joint_name="left_arm_gripper_joint" />
+
+  <!-- gripper joint 2 (fake mirror joint)-->
+  <xacro:arm_transmission_macro joint_name="left_arm_gripper_joint2" />
+
 </robot>
