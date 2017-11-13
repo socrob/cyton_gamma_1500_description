@@ -7,7 +7,6 @@
   <!-- Import Rviz colors -->
   <xacro:include filename="$(find mbot_description)/urdf/materials.urdf.xacro" />
 
-    
   <xacro:macro name="base_footprint" params="prefix">
     <link name="${prefix}base_footprint">
       <visual>
@@ -205,14 +204,6 @@
       <axis xyz="-1 0 0" />
     </joint>
 
-
-
-
-
-
-
-
-
     <link name="${prefix}wrist_pitch">
       <visual>
         <origin xyz="0 0 0" rpy="1.5708 0 1.5708" />
@@ -242,8 +233,6 @@
       <axis xyz="0 0 1" />
     </joint>
 
-
-
     <link name="${prefix}Wrist">
       <visual>
         <origin rpy="0.0 0 -1.57" xyz=" -0.013 0.015 0.0359"/>
@@ -266,8 +255,6 @@
       </inertial>
     </link>
 
-
-
     <link name="${prefix}Motor_+_Base">
       <visual>
         <origin rpy="0.0 0 0" xyz=" 0 -0.045 0"/>
@@ -279,7 +266,7 @@
       <collision>
         <origin rpy="0.0 0 0" xyz=" 0 -0.045 0"/>
         <geometry>
-          <box size="0.1 0.05 0.1"/>
+          <box size="0.001 0.001 0.001"/>
         </geometry>
       </collision>
       <inertial>
@@ -296,10 +283,6 @@
       <origin xyz="0 0.022 0"/>
     </joint>
 
-
-
-
-
 <link name="${prefix}right_link_front">
       <visual>
         <origin rpy="0 -0.6 0" xyz="0 0 0"/>
@@ -311,7 +294,7 @@
       <collision>
         <origin rpy="0 -0.6 0" xyz="0 0 0"/>
         <geometry>
-          <box size="0.1 0.05 0.1"/>
+          <box size="0.001 0.001 0.001"/>
         </geometry>
       </collision>
       <inertial>
@@ -331,8 +314,6 @@
       <axis xyz="0 1 0" />
     </joint>
 
-
-
      <link name="${prefix}right_link_back">
       <visual>
         <origin rpy="0.0 0 0" xyz="0 0 0"/>
@@ -344,7 +325,7 @@
       <collision>
         <origin rpy="0.0 0 0" xyz="0 0 0"/>
         <geometry>
-          <box size="0.1 0.05 0.1"/>
+          <box size="0.001 0.001 0.001"/>
         </geometry>
       </collision>
       <inertial>
@@ -365,9 +346,6 @@
       <mimic joint="${prefix}gripper_joint" multiplier="1" offset="0"/> 
     </joint>
 
-
-
-
      <link name="${prefix}left_link_front">
       <visual>
         <origin rpy="0 3.142 0" xyz="0 0 0"/>
@@ -378,7 +356,7 @@
       <collision>
         <origin rpy="0 3.142 0" xyz="0 0 0"/>
         <geometry>
-          <box size="0.1 0.05 0.1"/>
+          <box size="0.001 0.001 0.001"/>
         </geometry>
       </collision>
       <inertial>
@@ -398,10 +376,6 @@
       <limit effort="1000.0" lower="0.0" upper="1.68" velocity="0.5"/>
       <mimic joint="${prefix}gripper_joint" multiplier="-1" offset="0"/> 
     </joint>
-
-
-
-
 
      <link name="${prefix}left_link_back">
       <visual>
@@ -496,14 +470,11 @@
       <parent link="${prefix}right_link_back" />
       <child link="${prefix}two_fingers" />
       <origin xyz="0.06 -0.02 0.0"/>
-
+ist_cyton_gamma_1500_macros.urdf.xacro
       <axis xyz="0 1 0"/>
       <limit effort="1000.0" lower="0.0" upper="1.68" velocity="0.5"/>
       <mimic joint="${prefix}gripper_joint" multiplier="-1" offset="0"/> 
     </joint>
-
-
-
 
     <xacro:if value="${virtual_ee}"> <!-- virtual end-effector -->
       <joint name="${prefix}virtual_endeffector_joint" type="fixed">
