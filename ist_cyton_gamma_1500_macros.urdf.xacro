@@ -7,7 +7,7 @@
   <!-- Import Rviz colors -->
   <xacro:include filename="$(find mbot_description)/urdf/materials.urdf.xacro" />
 
-    
+
   <xacro:macro name="base_footprint" params="prefix">
     <link name="${prefix}base_footprint">
       <visual>
@@ -15,7 +15,7 @@
         <geometry>
           <sphere radius="0.001" />
         </geometry>
-       
+
         <material name="white">
           <color rgba="1 1 1 1"/>
         </material>
@@ -34,7 +34,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://cyton_gamma_1500_description/meshes/base.dae"/>
+          <mesh filename="package://cyton_gamma_1500_description/meshes/arm/base.dae"/>
         </geometry>
       </visual>
       <collision>
@@ -46,7 +46,7 @@
       <inertial>
         <mass value="0.001"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
-        
+
         <inertia ixx="1.1027" iyy="1.1027" izz="1.1027"
                   ixy="0" ixz="0" iyz="0"/>
       </inertial>
@@ -64,7 +64,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0.384"/>
         <geometry>
-          <mesh filename="package://cyton_gamma_1500_description/meshes/shoulder_roll.dae"/>
+          <mesh filename="package://cyton_gamma_1500_description/meshes/arm/shoulder_roll.dae"/>
         </geometry>
       </visual>
       <collision>
@@ -93,7 +93,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://cyton_gamma_1500_description/meshes/shoulder_pitch.dae"/>
+          <mesh filename="package://cyton_gamma_1500_description/meshes/arm/shoulder_pitch.dae"/>
         </geometry>
       </visual>
       <collision>
@@ -122,7 +122,7 @@
       <visual>
         <origin xyz="0 0 0.0" rpy="0 0 -1.5708" />
         <geometry>
-          <mesh filename="package://cyton_gamma_1500_description/meshes/shoulder_yaw.dae"/>
+          <mesh filename="package://cyton_gamma_1500_description/meshes/arm/shoulder_yaw.dae"/>
         </geometry>
       </visual>
       <collision>
@@ -151,7 +151,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="1.5708 0 3.1416" />
         <geometry>
-          <mesh filename="package://cyton_gamma_1500_description/meshes/elbow_pitch.dae"/>
+          <mesh filename="package://cyton_gamma_1500_description/meshes/arm/elbow_pitch.dae"/>
         </geometry>
       </visual>
       <collision>
@@ -180,7 +180,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 1.5708" />
         <geometry>
-          <mesh filename="package://cyton_gamma_1500_description/meshes/elbow_yaw.dae"/>
+          <mesh filename="package://cyton_gamma_1500_description/meshes/arm/elbow_yaw.dae"/>
         </geometry>
       </visual>
       <collision>
@@ -205,27 +205,14 @@
       <axis xyz="-1 0 0" />
     </joint>
 
-
-
-
-
-
-
-
-
     <link name="${prefix}wrist_pitch">
       <visual>
         <origin xyz="0 0 0" rpy="1.5708 0 1.5708" />
         <geometry>
-          <mesh filename="package://cyton_gamma_1500_description/meshes/wrist_pitch.dae"/>
+          <mesh filename="package://cyton_gamma_1500_description/meshes/arm/wrist_pitch.dae"/>
         </geometry>
       </visual>
-      <collision>
-        <origin xyz="-0.02 0 0.05" rpy="1.5708 0 1.5708" />
-        <geometry>
-          <box size="0.085 0.0435 0.05185"/>
-        </geometry>
-      </collision>
+
       <inertial>
         <mass value="0.001"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -248,14 +235,14 @@
       <visual>
         <origin rpy="0.0 0 -1.57" xyz=" -0.013 0.015 0.0359"/>
         <geometry>
-          <mesh filename="package://cyton_gamma_1500_description/meshes/wrist.dae"/>
+          <mesh filename="package://cyton_gamma_1500_description/meshes/arm/wrist.dae"/>
         </geometry>
 
       </visual>
       <collision>
         <origin rpy="0.0 0 -1.57" xyz=" -0.013 0.015 0.0359"/>
         <geometry>
-          <box size="0.1 0.05 0.1"/>
+          <box size="0.0001 0.0001 0.0001"/>        <!--0.1 0.05 0.1 -->
         </geometry>
       </collision>
       <inertial>
@@ -272,16 +259,11 @@
       <visual>
         <origin rpy="0.0 0 0" xyz=" 0 -0.045 0"/>
         <geometry>
-          <mesh filename="package://cyton_gamma_1500_description/meshes/Motor_+_Base.dae"/>
+          <mesh filename="package://cyton_gamma_1500_description/meshes/gripper/Motor_+_Base.dae"/>
         </geometry>
 
       </visual>
-      <collision>
-        <origin rpy="0.0 0 0" xyz=" 0 -0.045 0"/>
-        <geometry>
-          <box size="0.1 0.05 0.1"/>
-        </geometry>
-      </collision>
+
       <inertial>
         <mass value="0.001"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -304,16 +286,11 @@
       <visual>
         <origin rpy="0 -0.6 0" xyz="0 0 0"/>
         <geometry>
-          <mesh filename="package://cyton_gamma_1500_description/meshes/right_link_front.dae"/>
+          <mesh filename="package://cyton_gamma_1500_description/meshes/gripper/right_link_front.dae"/>
         </geometry>
 
       </visual>
-      <collision>
-        <origin rpy="0 -0.6 0" xyz="0 0 0"/>
-        <geometry>
-          <box size="0.1 0.05 0.1"/>
-        </geometry>
-      </collision>
+
       <inertial>
         <mass value="0.001"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -337,16 +314,11 @@
       <visual>
         <origin rpy="0.0 0 0" xyz="0 0 0"/>
         <geometry>
-          <mesh filename="package://cyton_gamma_1500_description/meshes/right_link_back.dae"/>
+          <mesh filename="package://cyton_gamma_1500_description/meshes/gripper/right_link_back.dae"/>
         </geometry>
 
       </visual>
-      <collision>
-        <origin rpy="0.0 0 0" xyz="0 0 0"/>
-        <geometry>
-          <box size="0.1 0.05 0.1"/>
-        </geometry>
-      </collision>
+
       <inertial>
         <mass value="0.001"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -362,7 +334,7 @@
 
       <axis xyz="0 1 0"/>
       <limit effort="1000.0" lower="0.0" upper="1.68" velocity="0.5"/>
-      <mimic joint="${prefix}gripper_joint" multiplier="1" offset="0"/> 
+      <mimic joint="${prefix}gripper_joint" multiplier="1" offset="0"/>
     </joint>
 
 
@@ -372,15 +344,10 @@
       <visual>
         <origin rpy="0 3.142 0" xyz="0 0 0"/>
         <geometry>
-          <mesh filename="package://cyton_gamma_1500_description/meshes/left_front_link.dae"/>
+          <mesh filename="package://cyton_gamma_1500_description/meshes/gripper/left_front_link.dae"/>
         </geometry>
       </visual>
-      <collision>
-        <origin rpy="0 3.142 0" xyz="0 0 0"/>
-        <geometry>
-          <box size="0.1 0.05 0.1"/>
-        </geometry>
-      </collision>
+
       <inertial>
         <mass value="0.001"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -396,7 +363,7 @@
 
       <axis xyz="0 1 0"/>
       <limit effort="1000.0" lower="0.0" upper="1.68" velocity="0.5"/>
-      <mimic joint="${prefix}gripper_joint" multiplier="-1" offset="0"/> 
+      <mimic joint="${prefix}gripper_joint" multiplier="-1" offset="0"/>
     </joint>
 
 
@@ -407,15 +374,9 @@
       <visual>
         <origin rpy="0 3.14 0" xyz="0 0 0"/>
         <geometry>
-          <mesh filename="package://cyton_gamma_1500_description/meshes/left_link_back.dae"/>
+          <mesh filename="package://cyton_gamma_1500_description/meshes/gripper/left_link_back.dae"/>
         </geometry>
       </visual>
-      <collision>
-        <origin rpy="0 3.14 0" xyz="0 0 0"/>
-        <geometry>
-          <box size="0.1 0.05 0.1"/>
-        </geometry>
-      </collision>
       <inertial>
         <mass value="0.001"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -431,7 +392,7 @@
 
       <axis xyz="0 1 0"/>
       <limit effort="1000.0" lower="0.0" upper="1.68" velocity="0.5"/>
-      <mimic joint="${prefix}gripper_joint" multiplier="-1" offset="0"/> 
+      <mimic joint="${prefix}gripper_joint" multiplier="-1" offset="0"/>
     </joint>
 
 
@@ -440,13 +401,13 @@
       <visual>
         <origin rpy="0 0.003 0" xyz="0 0 0"/>
         <geometry>
-          <mesh filename="package://cyton_gamma_1500_description/meshes/one_finger.dae"/>
+          <mesh filename="package://cyton_gamma_1500_description/meshes/gripper/one_finger.dae"/>
         </geometry>
       </visual>
       <collision>
-        <origin rpy="0 0.003 0" xyz="0 0 0"/>
+        <origin rpy="0 -0.05 0" xyz="0.014 -0.001 -0.07"/>
         <geometry>
-          <box size="0.1 0.05 0.1"/>
+          <box size="0.045 0.025 0.169"/>
         </geometry>
       </collision>
       <inertial>
@@ -464,7 +425,7 @@
 
       <axis xyz="0 1 0"/>
       <limit effort="1000.0" lower="0.0" upper="1.68" velocity="0.5"/>
-      <mimic joint="${prefix}motor_base_to_left_link_front" multiplier="-1" offset="0"/>  
+      <mimic joint="${prefix}motor_base_to_left_link_front" multiplier="-1" offset="0"/>
     </joint>
 
 
@@ -473,15 +434,15 @@
       <visual>
         <origin rpy="0 0.24 0" xyz="0 0 0"/>
         <geometry>
-          <mesh filename="package://cyton_gamma_1500_description/meshes/two_fingers.dae"/>
+          <mesh filename="package://cyton_gamma_1500_description/meshes/gripper/two_fingers.dae"/>
         </geometry>
-        <material name="black"/>
- 
+
+
       </visual>
       <collision>
-        <origin rpy="0 0.24 0" xyz="0 0 0"/>
+        <origin rpy="0 0.1 0" xyz="-0.02 0.024 -0.07"/>
         <geometry>
-          <box size="0.1 0.05 0.1"/>
+          <box size="0.045 0.07 0.165"/>
         </geometry>
       </collision>
       <inertial>
@@ -499,7 +460,7 @@
 
       <axis xyz="0 1 0"/>
       <limit effort="1000.0" lower="0.0" upper="1.68" velocity="0.5"/>
-      <mimic joint="${prefix}gripper_joint" multiplier="-1" offset="0"/> 
+      <mimic joint="${prefix}gripper_joint" multiplier="-1" offset="0"/>
     </joint>
 
 
