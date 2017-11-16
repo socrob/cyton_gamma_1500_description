@@ -6,22 +6,17 @@ find_package(catkin REQUIRED COMPONENTS xacro)
 catkin_package(
 )
 
-set(GAZEBO_MODEL_PATH $ENV{HOME}/.gazebo/models)
-
 
 ### INSTALLS
 
 # to make the install effective you need to run
 #    catkin build --this --make-args install
 
-install(DIRECTORY meshes/arm
-  DESTINATION ${GAZEBO_MODEL_PATH}/mbot
-  FILES_MATCHING PATTERN "*.dae"
-  PATTERN "*.png"
-)
+# install arm mesh files in gazebo path
+set(GAZEBO_MODEL_PATH $ENV{HOME}/.gazebo/models)
+add_custom_target(COMMAND cmake -E make_directory ${GAZEBO_MODEL_PATH}/${PROJECT_NAME})
 
-install(DIRECTORY meshes/gripper
-  DESTINATION ${GAZEBO_MODEL_PATH}/mbot
+install(DIRECTORY meshes
+  DESTINATION ${GAZEBO_MODEL_PATH}/${PROJECT_NAME}
   FILES_MATCHING PATTERN "*.dae"
-  PATTERN "*.png"
 )
