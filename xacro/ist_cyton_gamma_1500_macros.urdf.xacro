@@ -461,7 +461,8 @@
   <gazebo>
     <plugin name="joint_state_publisher"
             filename="libgazebo_ros_joint_state_publisher.so">
-      <jointName>left_arm_joint0, left_arm_joint1, left_arm_joint2, left_arm_joint3, left_arm_joint4, left_arm_joint5, left_arm_joint6</jointName>
+      <jointName>left_arm_joint0, left_arm_joint1, left_arm_joint2, left_arm_joint3, left_arm_joint4, left_arm_joint5,
+          left_arm_joint6, left_arm_gripper_joint</jointName>
       <robotNamespace>/</robotNamespace>
       <updateRate>50.0</updateRate>
     </plugin>
@@ -502,5 +503,8 @@
 
   <!-- joint6 -->
   <xacro:arm_transmission_macro joint_name="left_arm_joint6" />
+
+  <!-- gripper joint -->
+  <xacro:arm_transmission_macro joint_name="left_arm_gripper_joint" />
 
 </robot>
