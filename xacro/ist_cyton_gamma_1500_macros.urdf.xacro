@@ -11,13 +11,11 @@
         <geometry>
           <sphere radius="0.001" />
         </geometry>
-
         <material name="white">
           <color rgba="1 1 1 1"/>
         </material>
       </visual>
     </link>
-
     <joint name="base_joint" type="fixed">
       <parent link="${prefix}base_footprint" />
       <child link="${prefix}base_link" />
@@ -42,9 +40,8 @@
       <inertial>
         <mass value="0.001"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
-
         <inertia ixx="1.1027" iyy="1.1027" izz="1.1027"
-                  ixy="0" ixz="0" iyz="0"/>
+                 ixy="0" ixz="0" iyz="0"/>
       </inertial>
     </link>
 
@@ -73,7 +70,7 @@
         <mass value="0.001"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <inertia ixx=".1027" iyy=".1027" izz=".1027"
-                  ixy="0" ixz="0" iyz="0"/>
+                 ixy="0" ixz="0" iyz="0"/>
       </inertial>
     </link>
 
@@ -102,7 +99,7 @@
         <mass value="0.001"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <inertia ixx=".0827" iyy=".0827" izz=".0827"
-                  ixy="0" ixz="0" iyz="0"/>
+                 ixy="0" ixz="0" iyz="0"/>
       </inertial>
     </link>
 
@@ -131,7 +128,7 @@
         <mass value="0.001"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <inertia ixx=".0627" iyy=".0627" izz=".0627"
-                  ixy="0" ixz="0" iyz="0"/>
+                 ixy="0" ixz="0" iyz="0"/>
       </inertial>
     </link>
 
@@ -160,7 +157,7 @@
         <mass value="0.001"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <inertia ixx=".0327" iyy=".0327" izz=".0327"
-                  ixy="0" ixz="0" iyz="0"/>
+                 ixy="0" ixz="0" iyz="0"/>
       </inertial>
     </link>
 
@@ -189,7 +186,7 @@
         <mass value="0.001"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <inertia ixx=".0227" iyy=".0227" izz=".0227"
-                  ixy="0" ixz="0" iyz="0"/>
+                 ixy="0" ixz="0" iyz="0"/>
       </inertial>
     </link>
 
@@ -208,7 +205,6 @@
           <mesh filename="package://cyton_gamma_1500_description/meshes/arm/wrist_pitch.dae"/>
         </geometry>
       </visual>
-
       <inertial>
         <mass value="0.001"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -231,7 +227,6 @@
         <geometry>
           <mesh filename="package://cyton_gamma_1500_description/meshes/arm/wrist.dae"/>
         </geometry>
-
       </visual>
       <collision>
         <origin rpy="0.0 0 -1.57" xyz=" -0.013 0.015 0.0359"/>
@@ -253,7 +248,6 @@
         <geometry>
           <mesh filename="package://cyton_gamma_1500_description/meshes/gripper/Motor_+_Base.dae"/>
         </geometry>
-
       </visual>
       <inertial>
         <mass value="0.001"/>
@@ -269,13 +263,12 @@
       <origin xyz="0 0.022 0"/>
     </joint>
 
-<link name="${prefix}right_link_front">
+    <link name="${prefix}right_link_front">
       <visual>
         <origin rpy="0 -0.6 0" xyz="0 0 0"/>
         <geometry>
           <mesh filename="package://cyton_gamma_1500_description/meshes/gripper/right_link_front.dae"/>
         </geometry>
-
       </visual>
       <inertial>
         <mass value="0.001"/>
@@ -289,24 +282,22 @@
       <parent link="${prefix}Motor_+_Base" />
       <child link="${prefix}right_link_front" />
       <origin xyz="0 0 0 "/>
-
       <limit effort="1000.0" lower="0.0" upper="1.68" velocity="0.5"/>
       <axis xyz="0 1 0" />
     </joint>
 
-     <link name="${prefix}right_link_back">
+    <link name="${prefix}right_link_back">
       <visual>
         <origin rpy="0.0 0 0" xyz="0 0 0"/>
         <geometry>
           <mesh filename="package://cyton_gamma_1500_description/meshes/gripper/right_link_back.dae"/>
         </geometry>
-
       </visual>
       <inertial>
         <mass value="0.001"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <inertia ixx=".0027" iyy=".0027" izz=".0027"
-                  ixy="0" ixz="0" iyz="0"/>
+                 ixy="0" ixz="0" iyz="0"/>
       </inertial>
     </link>
 
@@ -314,13 +305,12 @@
       <parent link="${prefix}Motor_+_Base" />
       <child link="${prefix}right_link_back" />
       <origin xyz="0.025 -0.0085 0.015 "/>
-
       <axis xyz="0 1 0"/>
       <limit effort="1000.0" lower="0.0" upper="1.68" velocity="0.5"/>
       <mimic joint="${prefix}gripper_joint" multiplier="1" offset="0"/>
     </joint>
 
-     <link name="${prefix}left_link_front">
+    <link name="${prefix}left_link_front">
       <visual>
         <origin rpy="0 3.142 0" xyz="0 0 0"/>
         <geometry>
@@ -339,13 +329,12 @@
       <parent link="${prefix}Motor_+_Base" />
       <child link="${prefix}left_link_front" />
       <origin xyz="-0.022 -0.001 0"/>
-
       <axis xyz="0 1 0"/>
       <limit effort="1000.0" lower="0.0" upper="1.68" velocity="0.5"/>
       <mimic joint="${prefix}gripper_joint" multiplier="-1" offset="0"/>
     </joint>
 
-     <link name="${prefix}left_link_back">
+    <link name="${prefix}left_link_back">
       <visual>
         <origin rpy="0 3.14 0" xyz="0 0 0"/>
         <geometry>
@@ -356,7 +345,7 @@
         <mass value="0.001"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <inertia ixx=".0027" iyy=".0027" izz=".0027"
-                  ixy="0" ixz="0" iyz="0"/>
+                 ixy="0" ixz="0" iyz="0"/>
       </inertial>
     </link>
 
@@ -364,15 +353,12 @@
       <parent link="${prefix}Motor_+_Base" />
       <child link="${prefix}left_link_back" />
       <origin xyz="-0.0469 -0.014 0.0155"/>
-
       <axis xyz="0 1 0"/>
       <limit effort="1000.0" lower="0.0" upper="1.68" velocity="0.5"/>
       <mimic joint="${prefix}gripper_joint" multiplier="-1" offset="0"/>
     </joint>
 
-
-
-     <link name="${prefix}one_finger">
+    <link name="${prefix}one_finger">
       <visual>
         <origin rpy="0 0.003 0" xyz="0 0 0"/>
         <geometry>
@@ -403,16 +389,12 @@
       <mimic joint="${prefix}motor_base_to_left_link_front" multiplier="-1" offset="0"/>
     </joint>
 
-
-
-     <link name="${prefix}two_fingers">
+    <link name="${prefix}two_fingers">
       <visual>
         <origin rpy="0 0.24 0" xyz="0 0 0"/>
         <geometry>
           <mesh filename="package://cyton_gamma_1500_description/meshes/gripper/two_fingers.dae"/>
         </geometry>
-
-
       </visual>
       <collision>
         <origin rpy="0 0.1 0" xyz="-0.02 0.024 -0.07"/>
@@ -460,7 +442,7 @@
     <plugin name="joint_state_publisher"
             filename="libgazebo_ros_joint_state_publisher.so">
       <jointName>left_arm_joint0, left_arm_joint1, left_arm_joint2, left_arm_joint3, left_arm_joint4, left_arm_joint5,
-          left_arm_joint6, left_arm_gripper_joint</jointName>
+            left_arm_joint6, left_arm_gripper_joint</jointName>
       <robotNamespace>/</robotNamespace>
       <updateRate>50.0</updateRate>
     </plugin>
@@ -468,7 +450,7 @@
 
   <!-- arm transmissions -->
 
-  <!-- arm transmission macro -->
+  <!-- arm transmission macro (needed for Gazebo simulator -->
   <xacro:macro name="arm_transmission_macro" params="joint_name">
     <transmission name="${joint_name}_arm_trans">
       <type>transmission_interface/SimpleTransmission</type>
