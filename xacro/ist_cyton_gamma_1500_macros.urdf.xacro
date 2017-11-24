@@ -420,9 +420,9 @@
     </joint>
 
     <joint name="${prefix}virtual_endeffector_joint" type="fixed">
-      <parent link="${prefix}Wrist" />
+      <parent link="${prefix}Motor_+_Base" />
       <child link="${prefix}virtual_endeffector" />
-      <origin xyz="-0.002316 0.0079 0.079425" rpy="0 0 0" />
+      <origin xyz="-0.002316 0.0079 -0.12" rpy="0 0 0" />
     </joint>
 
     <link name="${prefix}virtual_endeffector">
@@ -438,7 +438,7 @@
     </link>
   </xacro:macro>
   
-  <gazebo>
+  <!--<gazebo>
     <plugin name="joint_state_publisher"
             filename="libgazebo_ros_joint_state_publisher.so">
       <jointName>left_arm_joint0, left_arm_joint1, left_arm_joint2, left_arm_joint3, left_arm_joint4, left_arm_joint5,
@@ -446,7 +446,7 @@
       <robotNamespace>/</robotNamespace>
       <updateRate>50.0</updateRate>
     </plugin>
-  </gazebo>
+  </gazebo>-->
 
   <!-- arm transmissions -->
 
@@ -486,8 +486,5 @@
 
   <!-- gripper joint 1 -->
   <xacro:arm_transmission_macro joint_name="left_arm_gripper_joint" />
-
-  <!-- gripper joint 2 (fake mirror joint)-->
-  <xacro:arm_transmission_macro joint_name="left_arm_gripper_joint2" />
 
 </robot>
