@@ -218,7 +218,7 @@
       <child link="${prefix}Wrist" />
       <origin rpy="0 3.14 0" xyz="-0.026255 0.0 0.115"/>
       <limit lower="-2.5279" upper="2.5355" effort="100.0" velocity="1.0" />
-      <axis xyz="0 0 1" />
+      <axis xyz="0 0 -1" />
     </joint>
 
     <link name="${prefix}Wrist">
