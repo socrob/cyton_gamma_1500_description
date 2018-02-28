@@ -283,7 +283,7 @@
       <child link="${prefix}right_link_front" />
       <origin xyz="0 0 0 "/>
       <limit effort="1000.0" lower="0.0" upper="1.68" velocity="0.5"/>
-      <axis xyz="0 -1 0" />
+      <axis xyz="0 1 0" />
     </joint>
 
     <link name="${prefix}right_link_back">
