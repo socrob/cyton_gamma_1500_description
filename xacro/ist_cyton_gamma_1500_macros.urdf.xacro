@@ -4,6 +4,12 @@
   <!-- math definitions -->
   <xacro:property name="M_PI" value="3.141592653589793" />
 
+  <!-- gripper joint limits -->
+  <xacro:property name="gripper_lower_limit" value="-1.5" />
+  <xacro:property name="gripper_upper_limit" value="-0.1" />
+  <xacro:property name="gripper_angular_offset" value="1.75" />
+
+  <!-- arm macro definition -->
   <xacro:macro name="cyton_gamma_1500" params="prefix">
     <link name="${prefix}base_link">
       <visual>
@@ -262,8 +268,8 @@
     <joint name="${prefix}gripper_joint" type="revolute">
       <parent link="${prefix}Motor_+_Base" />
       <child link="${prefix}right_link_front" />
-      <origin xyz="0 0 0 "/>
-      <limit effort="1000.0" lower="-1.5" upper="-0.1" velocity="0.5"/>
+      <origin xyz="0 0 0" rpy="0 ${gripper_angular_offset} 0" />
+      <limit effort="1000.0" lower="${gripper_lower_limit}" upper="${gripper_upper_limit}" velocity="0.5"/>
       <axis xyz="0 1 0" />
     </joint>
 
@@ -285,9 +291,9 @@
     <joint name="${prefix}motor_base_to_right_link_back" type="revolute">
       <parent link="${prefix}Motor_+_Base" />
       <child link="${prefix}right_link_back" />
-      <origin xyz="0.025 -0.0085 0.015 "/>
-      <axis xyz="0 1 0"/>
-      <limit effort="1000.0" lower="0.0" upper="1.68" velocity="0.5"/>
+      <origin xyz="0.025 -0.0085 0.015" rpy="0 ${gripper_angular_offset} 0" />
+      <axis xyz="0 1 0" />
+      <limit effort="1000.0" lower="${gripper_lower_limit}" upper="${gripper_upper_limit}" velocity="0.5"/>
       <mimic joint="${prefix}gripper_joint" multiplier="1" offset="0"/>
     </joint>
 
@@ -309,9 +315,9 @@
     <joint name="${prefix}motor_base_to_left_link_front" type="revolute">
       <parent link="${prefix}Motor_+_Base" />
       <child link="${prefix}left_link_front" />
-      <origin xyz="-0.022 -0.001 0"/>
-      <axis xyz="0 1 0"/>
-      <limit effort="1000.0" lower="0.0" upper="1.68" velocity="0.5"/>
+      <origin xyz="-0.022 -0.001 0" rpy="0 -${gripper_angular_offset} 0" />
+      <axis xyz="0 1 0" />
+      <limit effort="1000.0" lower="${gripper_lower_limit}" upper="${gripper_upper_limit}" velocity="0.5"/>
       <mimic joint="${prefix}gripper_joint" multiplier="-1" offset="0"/>
     </joint>
 
@@ -333,9 +339,9 @@
     <joint name="${prefix}motor_base_to_left_link_back" type="revolute">
       <parent link="${prefix}Motor_+_Base" />
       <child link="${prefix}left_link_back" />
-      <origin xyz="-0.0469 -0.014 0.0155"/>
-      <axis xyz="0 1 0"/>
-      <limit effort="1000.0" lower="0.0" upper="1.68" velocity="0.5"/>
+      <origin xyz="-0.0469 -0.014 0.0155" rpy="0 -${gripper_angular_offset} 0" />
+      <axis xyz="0 1 0" />
+      <limit effort="1000.0" lower="${gripper_lower_limit}" upper="${gripper_upper_limit}" velocity="0.5"/>
       <mimic joint="${prefix}gripper_joint" multiplier="-1" offset="0"/>
     </joint>
 
@@ -363,10 +369,9 @@
     <joint name="${prefix}left_link_back_to_one_finger" type="revolute">
       <parent link="${prefix}left_link_back" />
       <child link="${prefix}one_finger" />
-      <origin xyz="-0.06 0.008 0.0"/>
-
-      <axis xyz="0 1 0"/>
-      <limit effort="1000.0" lower="0.0" upper="1.68" velocity="0.5"/>
+      <origin xyz="-0.06 0.008 0.0" rpy="0 ${gripper_angular_offset} 0" />
+      <axis xyz="0 1 0" />
+      <limit effort="1000.0" lower="${gripper_lower_limit}" upper="${gripper_upper_limit}" velocity="0.5"/>
       <mimic joint="${prefix}motor_base_to_left_link_front" multiplier="-1" offset="0"/>
     </joint>
 
@@ -394,9 +399,9 @@
     <joint name="${prefix}right_link_back_to_two_fingers" type="revolute">
       <parent link="${prefix}right_link_back" />
       <child link="${prefix}two_fingers" />
-      <origin xyz="0.06 -0.02 0.0"/>
-      <axis xyz="0 1 0"/>
-      <limit effort="1000.0" lower="0.0" upper="1.68" velocity="0.5"/>
+      <origin xyz="0.06 -0.02 0.0" rpy="0 -${gripper_angular_offset} 0" />
+      <axis xyz="0 1 0" />
+      <limit effort="1000.0" lower="${gripper_lower_limit}" upper="${gripper_upper_limit}" velocity="0.5"/>
       <mimic joint="${prefix}gripper_joint" multiplier="-1" offset="0"/>
     </joint>
 
@@ -418,7 +423,7 @@
       </visual>
     </link>
   </xacro:macro>
-  
+
   <!--<gazebo>
     <plugin name="joint_state_publisher"
             filename="libgazebo_ros_joint_state_publisher.so">
