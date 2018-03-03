@@ -317,7 +317,7 @@
       <child link="${prefix}left_link_front" />
       <origin xyz="-0.022 -0.001 0" rpy="0 -${gripper_angular_offset} 0" />
       <axis xyz="0 1 0" />
-      <limit effort="1000.0" lower="${gripper_lower_limit}" upper="${gripper_upper_limit}" velocity="0.5"/>
+      <limit effort="1000.0" lower="${-gripper_upper_limit}" upper="${-gripper_lower_limit}" velocity="0.5"/>
       <mimic joint="${prefix}gripper_joint" multiplier="-1" offset="0"/>
     </joint>
 
@@ -341,7 +341,7 @@
       <child link="${prefix}left_link_back" />
       <origin xyz="-0.0469 -0.014 0.0155" rpy="0 -${gripper_angular_offset} 0" />
       <axis xyz="0 1 0" />
-      <limit effort="1000.0" lower="${gripper_lower_limit}" upper="${gripper_upper_limit}" velocity="0.5"/>
+      <limit effort="1000.0" lower="${-gripper_upper_limit}" upper="${-gripper_lower_limit}" velocity="0.5"/>
       <mimic joint="${prefix}gripper_joint" multiplier="-1" offset="0"/>
     </joint>
 
@@ -401,7 +401,7 @@
       <child link="${prefix}two_fingers" />
       <origin xyz="0.06 -0.02 0.0" rpy="0 -${gripper_angular_offset} 0" />
       <axis xyz="0 1 0" />
-      <limit effort="1000.0" lower="${gripper_lower_limit}" upper="${gripper_upper_limit}" velocity="0.5"/>
+      <limit effort="1000.0" lower="${-gripper_upper_limit}" upper="${-gripper_lower_limit}" velocity="0.5"/>
       <mimic joint="${prefix}gripper_joint" multiplier="-1" offset="0"/>
     </joint>
 
@@ -424,7 +424,29 @@
     </link>
   </xacro:macro>
 
-  <!--<gazebo>
+  <!-- plugin to support mimic joints in gazebo -->
+  <xacro:macro name="mimic_joints_macro" params="joint_to_be_mimiced mimic_joint multiplier">
+    <gazebo>
+      <plugin name="${mimic_joint}_mimic_plugin" filename="libroboticsgroup_gazebo_mimic_joint_plugin.so" >
+          <joint>left_arm_${joint_to_be_mimiced}</joint>
+          <mimicJoint>left_arm_${mimic_joint}</mimicJoint>
+          <multiplier>${multiplier}</multiplier>
+          <offset>0.0</offset>
+      </plugin>
+    </gazebo>
+  </xacro:macro>
+
+  <!-- left side of gripper -->
+  <xacro:mimic_joints_macro joint_to_be_mimiced="gripper_joint" mimic_joint="motor_base_to_left_link_front" multiplier="-1.0" />
+  <xacro:mimic_joints_macro joint_to_be_mimiced="gripper_joint" mimic_joint="motor_base_to_left_link_back" multiplier="-1.0" />
+  <xacro:mimic_joints_macro joint_to_be_mimiced="gripper_joint" mimic_joint="left_link_back_to_one_finger" multiplier="1.0" />
+
+  <!-- right side of gripper -->
+  <!-- right_link_front is actuated by gripper joint, therefore no need for mimic plugin -->
+  <xacro:mimic_joints_macro joint_to_be_mimiced="gripper_joint" mimic_joint="motor_base_to_right_link_back" multiplier="1.0" />
+  <xacro:mimic_joints_macro joint_to_be_mimiced="gripper_joint" mimic_joint="right_link_back_to_two_fingers" multiplier="-1.0" />
+
+  <!--<gazebo> ROS control publishes joint states currently, so no need for gazebo to do it
     <plugin name="joint_state_publisher"
             filename="libgazebo_ros_joint_state_publisher.so">
       <jointName>left_arm_joint0, left_arm_joint1, left_arm_joint2, left_arm_joint3, left_arm_joint4, left_arm_joint5,
@@ -434,9 +456,7 @@
     </plugin>
   </gazebo>-->
 
-  <!-- arm transmissions -->
-
-  <!-- arm transmission macro (needed for Gazebo simulator -->
+  <!-- arm transmission macro (needed to actuate joints in gazebo simulator via ROS control) -->
   <xacro:macro name="arm_transmission_macro" params="joint_name">
     <transmission name="${joint_name}_arm_trans">
       <type>transmission_interface/SimpleTransmission</type>
