@@ -9,6 +9,9 @@
   <xacro:property name="gripper_upper_limit" value="-0.1" />
   <xacro:property name="gripper_angular_offset" value="1.75" />
 
+  <!-- small mass that can be set to all links -->
+  <xacro:property name="small_mass" value="0.00001" />
+
   <!-- arm macro definition -->
   <xacro:macro name="cyton_gamma_1500" params="prefix">
     <link name="${prefix}base_link">
@@ -25,7 +28,7 @@
         </geometry>
       </collision>
       <inertial>
-        <mass value="0.001"/>
+        <mass value="${small_mass}" />
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <inertia ixx="1.1027" iyy="1.1027" izz="1.1027"
                  ixy="0" ixz="0" iyz="0"/>
@@ -54,7 +57,7 @@
         </geometry>
       </collision>
       <inertial>
-        <mass value="0.001"/>
+        <mass value="${small_mass}" />
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <inertia ixx=".1027" iyy=".1027" izz=".1027"
                  ixy="0" ixz="0" iyz="0"/>
@@ -83,7 +86,7 @@
         </geometry>
       </collision>
       <inertial>
-        <mass value="0.001"/>
+        <mass value="${small_mass}" />
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <inertia ixx=".0827" iyy=".0827" izz=".0827"
                  ixy="0" ixz="0" iyz="0"/>
@@ -112,7 +115,7 @@
         </geometry>
       </collision>
       <inertial>
-        <mass value="0.001"/>
+        <mass value="${small_mass}" />
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <inertia ixx=".0627" iyy=".0627" izz=".0627"
                  ixy="0" ixz="0" iyz="0"/>
@@ -141,7 +144,7 @@
         </geometry>
       </collision>
       <inertial>
-        <mass value="0.001"/>
+        <mass value="${small_mass}" />
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <inertia ixx=".0327" iyy=".0327" izz=".0327"
                  ixy="0" ixz="0" iyz="0"/>
@@ -170,7 +173,7 @@
         </geometry>
       </collision>
       <inertial>
-        <mass value="0.001"/>
+        <mass value="${small_mass}" />
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <inertia ixx=".0227" iyy=".0227" izz=".0227"
                  ixy="0" ixz="0" iyz="0"/>
@@ -193,7 +196,7 @@
         </geometry>
       </visual>
       <inertial>
-        <mass value="0.001"/>
+        <mass value="${small_mass}" />
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <inertia ixx=".0127" iyy=".0127" izz=".0127"
                   ixy="0" ixz="0" iyz="0"/>
@@ -222,7 +225,7 @@
         </geometry>
       </collision>
       <inertial>
-        <mass value="0.001"/>
+        <mass value="${small_mass}" />
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <inertia ixx=".0027" iyy=".0027" izz=".0027"
                   ixy="0" ixz="0" iyz="0"/>
@@ -237,7 +240,7 @@
         </geometry>
       </visual>
       <inertial>
-        <mass value="0.001"/>
+        <mass value="${small_mass}" />
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <inertia ixx=".0027" iyy=".0027" izz=".0027"
                   ixy="0" ixz="0" iyz="0"/>
@@ -258,7 +261,7 @@
         </geometry>
       </visual>
       <inertial>
-        <mass value="0.001"/>
+        <mass value="${small_mass}" />
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <inertia ixx=".0027" iyy=".0027" izz=".0027"
                   ixy="0" ixz="0" iyz="0"/>
@@ -281,7 +284,7 @@
         </geometry>
       </visual>
       <inertial>
-        <mass value="0.001"/>
+        <mass value="${small_mass}" />
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <inertia ixx=".0027" iyy=".0027" izz=".0027"
                  ixy="0" ixz="0" iyz="0"/>
@@ -305,7 +308,7 @@
         </geometry>
       </visual>
       <inertial>
-        <mass value="0.001"/>
+        <mass value="${small_mass}" />
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <inertia ixx=".0027" iyy=".0027" izz=".0027"
                   ixy="0" ixz="0" iyz="0"/>
@@ -329,7 +332,7 @@
         </geometry>
       </visual>
       <inertial>
-        <mass value="0.001"/>
+        <mass value="${small_mass}" />
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <inertia ixx=".0027" iyy=".0027" izz=".0027"
                  ixy="0" ixz="0" iyz="0"/>
@@ -359,7 +362,7 @@
         </geometry>
       </collision>
       <inertial>
-        <mass value="0.001"/>
+        <mass value="${small_mass}" />
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <inertia ixx=".0027" iyy=".0027" izz=".0027"
                   ixy="0" ixz="0" iyz="0"/>
@@ -389,7 +392,7 @@
         </geometry>
       </collision>
       <inertial>
-        <mass value="0.001"/>
+        <mass value="${small_mass}" />
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <inertia ixx=".0027" iyy=".0027" izz=".0027"
                   ixy="0" ixz="0" iyz="0"/>
