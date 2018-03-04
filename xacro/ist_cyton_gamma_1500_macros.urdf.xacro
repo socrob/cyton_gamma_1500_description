@@ -10,7 +10,10 @@
   <xacro:property name="gripper_angular_offset" value="1.75" />
 
   <!-- small mass that can be set to all links -->
-  <xacro:property name="small_mass" value="0.00001" />
+  <xacro:property name="small_mass" value="0.0001" />
+
+  <!-- we dont know yet the moment of inertia of the robot! -->
+  <xacro:property name="small_inertial_value" value="0.01" />
 
   <!-- arm macro definition -->
   <xacro:macro name="cyton_gamma_1500" params="prefix">
@@ -195,11 +198,17 @@
           <mesh filename="package://cyton_gamma_1500_description/meshes/arm/wrist_pitch.dae"/>
         </geometry>
       </visual>
-      <inertial>
+      <!--inertial>
         <mass value="${small_mass}" />
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <inertia ixx=".0127" iyy=".0127" izz=".0127"
                   ixy="0" ixz="0" iyz="0"/>
+      </inertial-->
+      <inertial>
+        <mass value="${small_mass}"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <inertia ixx="${small_inertial_value}" ixy="0" ixz="0"
+                iyy="${small_inertial_value}" iyz="0" izz="${small_inertial_value}"/>
       </inertial>
     </link>
 
@@ -225,10 +234,10 @@
         </geometry>
       </collision>
       <inertial>
-        <mass value="${small_mass}" />
+        <mass value="${small_mass}"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
-        <inertia ixx=".0027" iyy=".0027" izz=".0027"
-                  ixy="0" ixz="0" iyz="0"/>
+        <inertia ixx="${small_inertial_value}" ixy="0" ixz="0"
+                iyy="${small_inertial_value}" iyz="0" izz="${small_inertial_value}"/>
       </inertial>
     </link>
 
@@ -240,10 +249,10 @@
         </geometry>
       </visual>
       <inertial>
-        <mass value="${small_mass}" />
+        <mass value="${small_mass}"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
-        <inertia ixx=".0027" iyy=".0027" izz=".0027"
-                  ixy="0" ixz="0" iyz="0"/>
+        <inertia ixx="${small_inertial_value}" ixy="0" ixz="0"
+                iyy="${small_inertial_value}" iyz="0" izz="${small_inertial_value}"/>
       </inertial>
     </link>
 
@@ -261,10 +270,10 @@
         </geometry>
       </visual>
       <inertial>
-        <mass value="${small_mass}" />
+        <mass value="${small_mass}"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
-        <inertia ixx=".0027" iyy=".0027" izz=".0027"
-                  ixy="0" ixz="0" iyz="0"/>
+        <inertia ixx="${small_inertial_value}" ixy="0" ixz="0"
+                iyy="${small_inertial_value}" iyz="0" izz="${small_inertial_value}"/>
       </inertial>
     </link>
 
@@ -284,10 +293,10 @@
         </geometry>
       </visual>
       <inertial>
-        <mass value="${small_mass}" />
+        <mass value="${small_mass}"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
-        <inertia ixx=".0027" iyy=".0027" izz=".0027"
-                 ixy="0" ixz="0" iyz="0"/>
+        <inertia ixx="${small_inertial_value}" ixy="0" ixz="0"
+                iyy="${small_inertial_value}" iyz="0" izz="${small_inertial_value}"/>
       </inertial>
     </link>
 
@@ -308,10 +317,10 @@
         </geometry>
       </visual>
       <inertial>
-        <mass value="${small_mass}" />
+        <mass value="${small_mass}"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
-        <inertia ixx=".0027" iyy=".0027" izz=".0027"
-                  ixy="0" ixz="0" iyz="0"/>
+        <inertia ixx="${small_inertial_value}" ixy="0" ixz="0"
+                iyy="${small_inertial_value}" iyz="0" izz="${small_inertial_value}"/>
       </inertial>
     </link>
 
@@ -332,10 +341,10 @@
         </geometry>
       </visual>
       <inertial>
-        <mass value="${small_mass}" />
+        <mass value="${small_mass}"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
-        <inertia ixx=".0027" iyy=".0027" izz=".0027"
-                 ixy="0" ixz="0" iyz="0"/>
+        <inertia ixx="${small_inertial_value}" ixy="0" ixz="0"
+                iyy="${small_inertial_value}" iyz="0" izz="${small_inertial_value}"/>
       </inertial>
     </link>
 
@@ -362,10 +371,10 @@
         </geometry>
       </collision>
       <inertial>
-        <mass value="${small_mass}" />
+        <mass value="${small_mass}"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
-        <inertia ixx=".0027" iyy=".0027" izz=".0027"
-                  ixy="0" ixz="0" iyz="0"/>
+        <inertia ixx="${small_inertial_value}" ixy="0" ixz="0"
+                iyy="${small_inertial_value}" iyz="0" izz="${small_inertial_value}"/>
       </inertial>
     </link>
 
@@ -392,10 +401,10 @@
         </geometry>
       </collision>
       <inertial>
-        <mass value="${small_mass}" />
+        <mass value="${small_mass}"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
-        <inertia ixx=".0027" iyy=".0027" izz=".0027"
-                  ixy="0" ixz="0" iyz="0"/>
+        <inertia ixx="${small_inertial_value}" ixy="0" ixz="0"
+                iyy="${small_inertial_value}" iyz="0" izz="${small_inertial_value}"/>
       </inertial>
     </link>
 
