@@ -485,7 +485,7 @@
     <transmission name="${joint_name}_arm_trans">
       <type>transmission_interface/SimpleTransmission</type>
       <joint name="${joint_name}">
-        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
       </joint>
       <actuator name="${joint_name}_actuator">
         <mechanicalReduction>1</mechanicalReduction>
