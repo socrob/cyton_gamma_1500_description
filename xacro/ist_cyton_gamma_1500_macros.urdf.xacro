@@ -408,6 +408,18 @@
       </inertial>
     </link>
 
+    <gazebo reference="${prefix}one_finger">
+      <mu1 value="50.0"/>
+      <mu2 value="50.0"/> <!-- enable gripper finger friction-->
+      <material>Gazebo/DepthMapVS</material>
+    </gazebo>
+
+    <gazebo reference="${prefix}two_fingers">
+      <mu1 value="50.0"/>
+      <mu2 value="50.0"/> <!-- enable gripper fingers friction-->
+      <material>Gazebo/DepthMapVS</material>
+    </gazebo>
+
     <joint name="${prefix}right_link_back_to_two_fingers" type="revolute">
       <parent link="${prefix}right_link_back" />
       <child link="${prefix}two_fingers" />
