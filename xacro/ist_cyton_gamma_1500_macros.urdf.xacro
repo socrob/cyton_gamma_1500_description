@@ -10,10 +10,10 @@
   <xacro:property name="gripper_angular_offset" value="1.75" />
 
   <!-- small mass that can be set to all links -->
-  <xacro:property name="small_mass" value="0.0001" />
+  <xacro:property name="small_mass" value="0.01" />     <!-- 0.0001 -->
 
   <!-- we dont know yet the moment of inertia of the robot! -->
-  <xacro:property name="small_inertial_value" value="0.01" />
+  <xacro:property name="small_inertial_value" value="0.0001" />  <!-- 0.01 -->
 
   <!-- arm macro definition -->
   <xacro:macro name="cyton_gamma_1500" params="prefix">
@@ -33,7 +33,7 @@
       <inertial>
         <mass value="${small_mass}" />
         <origin rpy="0 0 0" xyz="0 0 0"/>
-        <inertia ixx="1.1027" iyy="1.1027" izz="1.1027"
+        <inertia ixx="0.00033470819945" iyy="0.00027126655816" izz="0.00045870814985"
                  ixy="0" ixz="0" iyz="0"/>
       </inertial>
     </link>
@@ -62,7 +62,7 @@
       <inertial>
         <mass value="${small_mass}" />
         <origin rpy="0 0 0" xyz="0 0 0"/>
-        <inertia ixx=".1027" iyy=".1027" izz=".1027"
+        <inertia ixx="0.00033470819945" iyy="0.00027126655816" izz="0.00045870814985" 
                  ixy="0" ixz="0" iyz="0"/>
       </inertial>
     </link>
@@ -91,7 +91,7 @@
       <inertial>
         <mass value="${small_mass}" />
         <origin rpy="0 0 0" xyz="0 0 0"/>
-        <inertia ixx=".0827" iyy=".0827" izz=".0827"
+        <inertia ixx="0.000369846326228" iyy="9.92983769473e-05" izz="0.000354328082435"
                  ixy="0" ixz="0" iyz="0"/>
       </inertial>
     </link>
@@ -120,7 +120,7 @@
       <inertial>
         <mass value="${small_mass}" />
         <origin rpy="0 0 0" xyz="0 0 0"/>
-        <inertia ixx=".0627" iyy=".0627" izz=".0627"
+        <inertia ixx="0.000331604200692" iyy="9.04687138125e-05" izz="0.000326816952606"
                  ixy="0" ixz="0" iyz="0"/>
       </inertial>
     </link>
@@ -149,7 +149,7 @@
       <inertial>
         <mass value="${small_mass}" />
         <origin rpy="0 0 0" xyz="0 0 0"/>
-        <inertia ixx=".0327" iyy=".0327" izz=".0327"
+        <inertia ixx="0.000250153983272" iyy="7.32500540333e-05" izz="0.000227137409145"
                  ixy="0" ixz="0" iyz="0"/>
       </inertial>
     </link>
@@ -178,7 +178,7 @@
       <inertial>
         <mass value="${small_mass}" />
         <origin rpy="0 0 0" xyz="0 0 0"/>
-        <inertia ixx=".0227" iyy=".0227" izz=".0227"
+        <inertia ixx="0.00013554161245" iyy="4.72603977625e-05" izz="0.000135985362272"
                  ixy="0" ixz="0" iyz="0"/>
       </inertial>
     </link>
@@ -230,14 +230,14 @@
       <collision>
         <origin rpy="0.0 0 -1.57" xyz=" -0.013 0.015 0.0359"/>
         <geometry>
-          <box size="0.0001 0.0001 0.0001"/>        <!--0.1 0.05 0.1 -->
+          <box size="0.08 0.08 0.09"/>        <!--0.1 0.05 0.1 -->
         </geometry>
       </collision>
       <inertial>
         <mass value="${small_mass}"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
-        <inertia ixx="${small_inertial_value}" ixy="0" ixz="0"
-                iyy="${small_inertial_value}" iyz="0" izz="${small_inertial_value}"/>
+        <inertia ixx="0.000120833285" ixy="0.0" ixz="0.0" iyy="0.000120833285" 
+                 iyz="0.0" izz="0.000106666624"/>
       </inertial>
     </link>
 
@@ -373,8 +373,9 @@
       <inertial>
         <mass value="${small_mass}"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
-        <inertia ixx="${small_inertial_value}" ixy="0" ixz="0"
-                iyy="${small_inertial_value}" iyz="0" izz="${small_inertial_value}"/>
+        <!--inertia ixx="${small_inertial_value}" ixy="0" ixz="0"
+                iyy="${small_inertial_value}" iyz="0" izz="${small_inertial_value}"/-->
+        <inertia ixx="0.00024321656938" ixy="0.0" ixz="0.0" iyy="0.00025488323138" iyz="0.0" izz="2.20833245e-05"/>
       </inertial>
     </link>
 
@@ -403,8 +404,9 @@
       <inertial>
         <mass value="${small_mass}"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
-        <inertia ixx="${small_inertial_value}" ixy="0" ixz="0"
-                iyy="${small_inertial_value}" iyz="0" izz="${small_inertial_value}"/>
+        <!--inertia ixx="${small_inertial_value}" ixy="0" ixz="0"
+                iyy="${small_inertial_value}" iyz="0" izz="${small_inertial_value}"/-->
+        <inertia ixx="0.00026770822625" ixy="0.0" ixz="0.0" iyy="0.0002437499025" iyz="0.0" izz="5.770831025e-05"/>
       </inertial>
     </link>
 
