@@ -10,10 +10,10 @@
   <xacro:property name="gripper_angular_offset" value="1.75" />
 
   <!-- small mass that can be set to all links -->
-  <xacro:property name="small_mass" value="0.01" />     <!-- 0.0001 -->
+  <xacro:property name="small_mass" value="0.01" />
 
   <!-- we dont know yet the moment of inertia of the robot! -->
-  <xacro:property name="small_inertial_value" value="0.0001" />  <!-- 0.01 -->
+  <xacro:property name="small_inertial_value" value="0.00001" />
 
   <!-- arm macro definition -->
   <xacro:macro name="cyton_gamma_1500" params="prefix">
@@ -30,11 +30,16 @@
           <box size="0.154 0.177 0.094"/>
         </geometry>
       </collision>
-      <inertial>
+      <!--inertial>
         <mass value="${small_mass}" />
         <origin rpy="0 0 0" xyz="0 0 0"/>
-        <inertia ixx="0.00033470819945" iyy="0.00027126655816" izz="0.00045870814985"
+        <inertia ixx="1.1027" iyy="1.1027" izz="1.1027"
                  ixy="0" ixz="0" iyz="0"/>
+      </inertial-->
+      <inertial>
+        <mass value="0.1"/>
+        <origin xyz="0 0.0115 0.047"/>
+        <inertia ixx="0.00033470819945" ixy="0.0" ixz="0.0" iyy="0.00027126655816" iyz="0.0" izz="0.00045870814985"/>
       </inertial>
     </link>
 
@@ -59,11 +64,16 @@
           <box size="0.09829 0.18143 0.08392"/>
         </geometry>
       </collision>
-      <inertial>
+      <!--inertial>
         <mass value="${small_mass}" />
         <origin rpy="0 0 0" xyz="0 0 0"/>
-        <inertia ixx="0.00033470819945" iyy="0.00027126655816" izz="0.00045870814985" 
+        <inertia ixx=".1027" iyy=".1027" izz=".1027"
                  ixy="0" ixz="0" iyz="0"/>
+      </inertial-->
+      <inertial>
+        <mass value="0.1"/>
+        <origin xyz="0 0 0.0587" rpy="1.5708 0 0"/>
+        <inertia ixx="0.000332994960969" ixy="0.0" ixz="0.0" iyy="0.000139195698488" iyz="0.0" izz="0.000354814599741"/>
       </inertial>
     </link>
 
@@ -88,11 +98,16 @@
           <box size="0.0709 0.19363 0.083"/>
         </geometry>
       </collision>
-      <inertial>
+      <!--inertial>
         <mass value="${small_mass}" />
         <origin rpy="0 0 0" xyz="0 0 0"/>
-        <inertia ixx="0.000369846326228" iyy="9.92983769473e-05" izz="0.000354328082435"
+        <inertia ixx=".0827" iyy=".0827" izz=".0827"
                  ixy="0" ixz="0" iyz="0"/>
+      </inertial-->
+      <inertial>
+        <mass value="0.1"/>
+        <origin xyz="-0.02 -0.001 0.064" rpy="1.5708 0 0"/>
+        <inertia ixx="0.000369846326228" ixy="0.0" ixz="0.0" iyy="9.92983769473e-05" iyz="0.0" izz="0.000354328082435"/>
       </inertial>
     </link>
 
@@ -117,11 +132,16 @@
           <box size="0.0717 0.1846 0.0756"/>
         </geometry>
       </collision>
-      <inertial>
+      <!--inertial>
         <mass value="${small_mass}" />
         <origin rpy="0 0 0" xyz="0 0 0"/>
-        <inertia ixx="0.000331604200692" iyy="9.04687138125e-05" izz="0.000326816952606"
+        <inertia ixx=".0627" iyy=".0627" izz=".0627"
                  ixy="0" ixz="0" iyz="0"/>
+      </inertial-->
+      <inertial>
+        <mass value="0.1"/>
+        <origin xyz="-0.003 0.0225 0.057" rpy="1.5708 0 -1.5708"/>
+        <inertia ixx="0.000331604200692" ixy="0.0" ixz="0.0" iyy="9.04687138125e-05" iyz="0.0" izz="0.000326816952606"/>
       </inertial>
     </link>
 
@@ -146,11 +166,16 @@
           <box size="0.0549 0.1557 0.076"/>
         </geometry>
       </collision>
-      <inertial>
+      <!--inertial>
         <mass value="${small_mass}" />
         <origin rpy="0 0 0" xyz="0 0 0"/>
-        <inertia ixx="0.000250153983272" iyy="7.32500540333e-05" izz="0.000227137409145"
+        <inertia ixx=".0327" iyy=".0327" izz=".0327"
                  ixy="0" ixz="0" iyz="0"/>
+      </inertial-->
+      <inertial>
+        <mass value="0.1"/>
+        <origin xyz="-0.017 0.004 0.0461" rpy="1.5708 0 3.1416"/>
+        <inertia ixx="0.000250153983272" ixy="0.0" ixz="0.0" iyy="7.32500540333e-05" iyz="0.0" izz="0.000227137409145"/>
       </inertial>
     </link>
 
@@ -175,11 +200,16 @@
           <box size="0.0535 0.1160 0.053"/>
         </geometry>
       </collision>
-      <inertial>
+      <!--inertial>
         <mass value="${small_mass}" />
         <origin rpy="0 0 0" xyz="0 0 0"/>
-        <inertia ixx="0.00013554161245" iyy="4.72603977625e-05" izz="0.000135985362272"
+        <inertia ixx=".0227" iyy=".0227" izz=".0227"
                  ixy="0" ixz="0" iyz="0"/>
+      </inertial-->
+      <inertial>
+        <mass value="0.1"/>
+        <origin xyz="0 0.0172 0.047" rpy="1.5708 0 1.5708"/>
+        <inertia ixx="0.00013554161245" ixy="0.0" ixz="0.0" iyy="4.72603977625e-05" iyz="0.0" izz="0.000135985362272"/>
       </inertial>
     </link>
 
@@ -198,18 +228,17 @@
           <mesh filename="package://cyton_gamma_1500_description/meshes/arm/wrist_pitch.dae"/>
         </geometry>
       </visual>
-      <!--inertial>
-        <mass value="${small_mass}" />
-        <origin rpy="0 0 0" xyz="0 0 0"/>
-        <inertia ixx=".0127" iyy=".0127" izz=".0127"
-                  ixy="0" ixz="0" iyz="0"/>
-      </inertial-->
       <inertial>
-        <mass value="${small_mass}"/>
-        <origin rpy="0 0 0" xyz="0 0 0"/>
-        <inertia ixx="${small_inertial_value}" ixy="0" ixz="0"
-                iyy="${small_inertial_value}" iyz="0" izz="${small_inertial_value}"/>
+        <mass value="0.1"/>
+        <origin xyz="-0.03 0 0.03" rpy="1.5708 0 1.5708" />
+        <inertia ixx="9.0833297e-05" ixy="0.0" ixz="0.0" iyy="1.4999994e-05" iyz="0.0" izz="9.0833297e-05"/>
       </inertial>
+      <!--inertial>
+        <mass value="0.0001"/>
+        <origin xyz="0 0 0" rpy="1.5708 0 1.5708" />
+        <inertia ixx="0.01" ixy="0" ixz="0"
+                 iyy="0.01" iyz="0" izz="0.01"/>
+      </inertial-->
     </link>
 
     <joint name="${prefix}joint6" type="revolute">
@@ -228,16 +257,27 @@
         </geometry>
       </visual>
       <collision>
-        <origin rpy="0.0 0 -1.57" xyz=" -0.013 0.015 0.0359"/>
+        <origin rpy="0.0 0 -1.57" xyz="-0.013 0 0.0359"/>
         <geometry>
-          <box size="0.08 0.08 0.09"/>        <!--0.1 0.05 0.1 -->
+          <box size="0.07 0.07 0.1"/>        <!--0.1 0.05 0.1 -->
         </geometry>
       </collision>
-      <inertial>
+      <!--inertial>
         <mass value="${small_mass}"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
-        <inertia ixx="0.000120833285" ixy="0.0" ixz="0.0" iyy="0.000120833285" 
-                 iyz="0.0" izz="0.000106666624"/>
+        <inertia ixx="${small_inertial_value}" ixy="0" ixz="0"
+                iyy="${small_inertial_value}" iyz="0" izz="${small_inertial_value}"/>
+      </inertial-->
+      <inertial>
+        <mass value="0.1"/>
+        <origin xyz="0 0 -0.04"/>
+        <inertia ixx="0.00055768311026" ixy="0.0" ixz="0.0" iyy="0.00050976646276" iyz="0.0" izz="0.0001154166205"/>
+        <!--inertia ixx="0.001372499451" ixy="0.0" ixz="0.0" iyy="0.001372499451" iyz="0.0" izz="0.00112499955"/-->
+        <!--inertia ixx="0.001884999246" ixy="0.0" ixz="0.0" iyy="0.001884999246" iyz="0.0" izz="0.00112499955"/-->
+        <!--mass value="0.0001"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <inertia ixx="0.01" ixy="0" ixz="0"
+                 iyy="0.01" iyz="0" izz="0.01"/-->
       </inertial>
     </link>
 
@@ -275,6 +315,11 @@
         <inertia ixx="${small_inertial_value}" ixy="0" ixz="0"
                 iyy="${small_inertial_value}" iyz="0" izz="${small_inertial_value}"/>
       </inertial>
+      <!--inertial>
+         <mass value="0.01"/>
+         <origin xyz="0.05 0 0"/>
+         <inertia ixx="5.24370614418e-07" ixy="0.0" ixz="0.0" iyy="5.16033748003e-06" iyz="0.0" izz="4.77857097524e-06"/>
+       </inertial-->
     </link>
 
     <joint name="${prefix}gripper_joint" type="revolute">
@@ -292,12 +337,23 @@
           <mesh filename="package://cyton_gamma_1500_description/meshes/gripper/right_link_back.dae"/>
         </geometry>
       </visual>
+      <collision>
+        <origin rpy="0 -1.6 0" xyz="0.03 0 0"/>
+        <geometry>
+          <box size="0.02 0.02 0.07"/>
+        </geometry>
+      </collision>
       <inertial>
         <mass value="${small_mass}"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <inertia ixx="${small_inertial_value}" ixy="0" ixz="0"
                 iyy="${small_inertial_value}" iyz="0" izz="${small_inertial_value}"/>
       </inertial>
+      <!--inertial>
+        <mass value="0.01"/>
+        <origin xyz="0.04 0 0"/>
+        <inertia ixx="5.24370614418e-07" ixy="0.0" ixz="0.0" iyy="5.16033748003e-06" iyz="0.0" izz="4.77857097524e-06"/>
+      </inertial-->
     </link>
 
     <joint name="${prefix}motor_base_to_right_link_back" type="revolute">
@@ -322,6 +378,11 @@
         <inertia ixx="${small_inertial_value}" ixy="0" ixz="0"
                 iyy="${small_inertial_value}" iyz="0" izz="${small_inertial_value}"/>
       </inertial>
+      <!--inertial>
+         <mass value="0.01"/>
+         <origin xyz="-0.05 0 0"/>
+         <inertia ixx="5.24370614418e-07" ixy="0.0" ixz="0.0" iyy="5.16033748003e-06" iyz="0.0" izz="4.77857097524e-06"/>
+       </inertial-->
     </link>
 
     <joint name="${prefix}motor_base_to_left_link_front" type="revolute">
@@ -340,12 +401,23 @@
           <mesh filename="package://cyton_gamma_1500_description/meshes/gripper/left_link_back.dae"/>
         </geometry>
       </visual>
+      <collision>
+         <origin rpy="0 1.6 0" xyz="-0.03 0 0"/>
+         <geometry>
+          <box size="0.02 0.02 0.07"/>
+        </geometry>
+      </collision>
       <inertial>
         <mass value="${small_mass}"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <inertia ixx="${small_inertial_value}" ixy="0" ixz="0"
                 iyy="${small_inertial_value}" iyz="0" izz="${small_inertial_value}"/>
       </inertial>
+      <!--inertial>
+        <mass value="0.01"/>
+        <origin xyz="-0.04 0 0"/>
+        <inertia ixx="5.24370614418e-07" ixy="0.0" ixz="0.0" iyy="5.16033748003e-06" iyz="0.0" izz="4.77857097524e-06"/>
+      </inertial-->
     </link>
 
     <joint name="${prefix}motor_base_to_left_link_back" type="revolute">
@@ -365,17 +437,21 @@
         </geometry>
       </visual>
       <collision>
-        <origin rpy="0 -0.05 0" xyz="0.014 -0.001 -0.07"/>
+        <origin rpy="0 0 0" xyz="0.014 -0.001 -0.07"/>
         <geometry>
-          <box size="0.045 0.025 0.169"/>
+          <box size="0.045 0.07 0.169"/>
         </geometry>
       </collision>
-      <inertial>
-        <mass value="${small_mass}"/>
+      <!--inertial>
+        <mass value="0.0001"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
-        <!--inertia ixx="${small_inertial_value}" ixy="0" ixz="0"
-                iyy="${small_inertial_value}" iyz="0" izz="${small_inertial_value}"/-->
-        <inertia ixx="0.00024321656938" ixy="0.0" ixz="0.0" iyy="0.00025488323138" iyz="0.0" izz="2.20833245e-05"/>
+        <inertia ixx="0.01" ixy="0" ixz="0"
+                iyy="0.01" iyz="0" izz="0.01"/>
+      </inertial-->
+      <inertial>
+        <mass value="0.1"/>
+        <origin xyz="0.01 0 -0.07" rpy="0 0 0"/>
+        <inertia ixx="0.00027884155513" ixy="0.0" ixz="0.0" iyy="0.00025488323138" iyz="0.0" izz="5.770831025e-05"/>
       </inertial>
     </link>
 
@@ -396,29 +472,33 @@
         </geometry>
       </visual>
       <collision>
-        <origin rpy="0 0.1 0" xyz="-0.02 0.024 -0.07"/>
+        <origin rpy="0 0 0" xyz="-0.02 0.024 -0.07"/>
         <geometry>
           <box size="0.045 0.07 0.165"/>
         </geometry>
       </collision>
-      <inertial>
-        <mass value="${small_mass}"/>
+      <!--inertial>
+        <mass value="0.0001"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
-        <!--inertia ixx="${small_inertial_value}" ixy="0" ixz="0"
-                iyy="${small_inertial_value}" iyz="0" izz="${small_inertial_value}"/-->
+        <inertia ixx="0.01" ixy="0" ixz="0"
+                iyy="0.01" iyz="0" izz="0.01"/>
+      </inertial-->
+      <inertial>
+        <mass value="0.1"/>
+        <origin xyz="-0.02 0.03 -0.07" rpy="0 0 0"/>
         <inertia ixx="0.00026770822625" ixy="0.0" ixz="0.0" iyy="0.0002437499025" iyz="0.0" izz="5.770831025e-05"/>
       </inertial>
     </link>
 
     <gazebo reference="${prefix}one_finger">
-      <mu1 value="50.0"/>
-      <mu2 value="50.0"/> <!-- enable gripper finger friction-->
+      <mu1 value="1"/>
+      <mu2 value="1"/> 
       <material>Gazebo/DepthMapVS</material>
     </gazebo>
 
     <gazebo reference="${prefix}two_fingers">
-      <mu1 value="50.0"/>
-      <mu2 value="50.0"/> <!-- enable gripper fingers friction-->
+      <mu1 value="1"/>
+      <mu2 value="1"/>
       <material>Gazebo/DepthMapVS</material>
     </gazebo>
 
@@ -448,7 +528,27 @@
         </material>
       </visual>
     </link>
-  </xacro:macro>
+
+    <!-- to attach objects when grasping -->
+    <gazebo>
+        <plugin name="gazebo_grasp_fix" filename="libgazebo_grasp_fix.so">
+            <arm>
+                <arm_name>${prefix}</arm_name>
+                <palm_link>${prefix}Wrist</palm_link>
+                <gripper_link>${prefix}one_finger</gripper_link>
+                <gripper_link>${prefix}two_fingers</gripper_link>
+            </arm>
+            <forces_angle_tolerance>100</forces_angle_tolerance>
+            <update_rate>4</update_rate>
+            <grip_count_threshold>4</grip_count_threshold>
+            <max_grip_count>8</max_grip_count>
+            <release_tolerance>0.005</release_tolerance>
+            <disable_collisions_on_attach>false</disable_collisions_on_attach>
+            <contact_topic>__default_topic__</contact_topic>
+        </plugin>
+    </gazebo>
+    
+  </xacro:macro> <!-- end of mbot arm macro -->
 
   <!-- plugin to support mimic joints in gazebo -->
   <xacro:macro name="mimic_joints_macro" params="joint_to_be_mimiced mimic_joint multiplier">
@@ -518,5 +618,16 @@
 
   <!-- gripper joint 1 -->
   <xacro:arm_transmission_macro joint_name="left_arm_gripper_joint" />
+
+  <!-- arm transmission macro based on effort for gripper -->
+    <!--transmission name="left_arm_gripper_joint_arm_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="left_arm_gripper_joint">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="left_arm_gripper_joint_actuator">
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission-->
 
 </robot>
