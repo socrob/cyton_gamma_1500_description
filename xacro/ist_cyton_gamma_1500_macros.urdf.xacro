@@ -433,9 +433,9 @@
     </joint>
 
     <joint name="${prefix}virtual_endeffector_joint" type="fixed">
-      <parent link="${prefix}Motor_+_Base" />
+      <parent link="${prefix}Wrist" />
       <child link="${prefix}virtual_endeffector" />
-      <origin xyz="-0.002316 0.0079 -0.12" rpy="0 0 0" />
+      <origin xyz="-0.012 0.018 -0.130" rpy="0 0 0" /> <!-- set this value also in mbot pregrasp planning gripper matrix -->
     </joint>
 
     <link name="${prefix}virtual_endeffector">
