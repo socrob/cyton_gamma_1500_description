@@ -585,18 +585,6 @@
   <xacro:macro name="mimic_joints_macro" params="joint_to_be_mimiced mimic_joint multiplier">
     <gazebo>
       <plugin name="${mimic_joint}_mimic_plugin" filename="libroboticsgroup_gazebo_mimic_joint_plugin.so" >
-        <joint>left_arm_${joint_to_be_mimiced}</joint>
-        <mimicJoint>left_arm_${mimic_joint}</mimicJoint>
-        <multiplier>${multiplier}</multiplier>
-        <offset>0.0</offset>
-      </plugin>
-    </gazebo>
-  </xacro:macro>
-
-  <!-- plugin to support mimic joints in gazebo -->
-  <xacro:macro name="mimic_joints_macro" params="joint_to_be_mimiced mimic_joint multiplier">
-    <gazebo>
-      <plugin name="${mimic_joint}_mimic_plugin" filename="libroboticsgroup_gazebo_mimic_joint_plugin.so" >
           <joint>left_arm_${joint_to_be_mimiced}</joint>
           <mimicJoint>left_arm_${mimic_joint}</mimicJoint>
           <multiplier>${multiplier}</multiplier>
