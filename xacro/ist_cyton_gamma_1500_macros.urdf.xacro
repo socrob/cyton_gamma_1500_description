@@ -20,6 +20,7 @@
 
   <!-- arm macro definition -->
   <xacro:macro name="cyton_gamma_1500" params="prefix">
+
     <link name="${prefix}base_link">
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -33,11 +34,16 @@
           <box size="0.154 0.177 0.094"/>
         </geometry>
       </collision>
-      <inertial>
+      <!--inertial>
         <mass value="${small_mass}" />
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <inertia ixx="1.1027" iyy="1.1027" izz="1.1027"
                  ixy="0" ixz="0" iyz="0"/>
+      </inertial-->
+      <inertial>
+        <mass value="1.4"/>
+        <origin xyz="0 0 0"/>
+        <inertia ixx="0.2248838665" ixy="0.0" ixz="0.0" iyy="0.224890078997" iyz="0.0" izz="0.000661645568675"/>
       </inertial>
     </link>
 
@@ -62,11 +68,16 @@
           <box size="0.09829 0.18143 0.08392"/>
         </geometry>
       </collision>
-      <inertial>
+      <!--inertial>
         <mass value="${small_mass}" />
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <inertia ixx=".1027" iyy=".1027" izz=".1027"
                  ixy="0" ixz="0" iyz="0"/>
+      </inertial-->
+      <inertial>
+        <mass value="40"/> <!-- This needs to be calculated different because it is a different kind of torque -->
+        <origin xyz="0 0 0"/>
+        <inertia ixx="0.133197984387" ixy="0.0" ixz="0.0" iyy="0.141925839896" iyz="0.0" izz="0.0556782793953"/>
       </inertial>
     </link>
 
@@ -91,11 +102,16 @@
           <box size="0.0709 0.19363 0.083"/>
         </geometry>
       </collision>
-      <inertial>
+      <!--inertial>
         <mass value="${small_mass}" />
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <inertia ixx=".0827" iyy=".0827" izz=".0827"
                  ixy="0" ixz="0" iyz="0"/>
+      </inertial-->
+      <inertial>
+        <mass value="1"/>
+        <origin xyz="0 0 0"/>
+        <inertia ixx="0.103266402435" ixy="0.0" ixz="0.0" iyy="0.103270839933" iyz="0.0" izz="0.000472603977625"/>
       </inertial>
     </link>
 
@@ -120,11 +136,16 @@
           <box size="0.0717 0.1846 0.0756"/>
         </geometry>
       </collision>
-      <inertial>
-        <mass value="${small_mass}" />
+      <!--inertial>
+        <mass value="${small_mass}"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <inertia ixx=".0627" iyy=".0627" izz=".0627"
                  ixy="0" ixz="0" iyz="0"/>
+      </inertial-->
+      <inertial>
+        <mass value="0.8"/>
+        <origin xyz="0 0 0"/>
+        <inertia ixx="0.0564055701044" ixy="0.0" ixz="0.0" iyy="0.056409120103" iyz="0.0" izz="0.0003780831821"/>
       </inertial>
     </link>
 
@@ -149,11 +170,16 @@
           <box size="0.0549 0.1557 0.076"/>
         </geometry>
       </collision>
-      <inertial>
+      <!--inertial>
         <mass value="${small_mass}" />
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <inertia ixx=".0327" iyy=".0327" izz=".0327"
                  ixy="0" ixz="0" iyz="0"/>
+      </inertial-->
+      <inertial>
+        <mass value="0.6"/>
+        <origin xyz="0 0 0"/>
+        <inertia ixx="0.0270562236775" ixy="0.0" ixz="0.0" iyy="0.0270588861764" iyz="0.0" izz="0.000283562386575"/>
       </inertial>
     </link>
 
@@ -178,11 +204,16 @@
           <box size="0.0535 0.1160 0.053"/>
         </geometry>
       </collision>
-      <inertial>
+      <!--inertial>
         <mass value="${small_mass}" />
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <inertia ixx=".0227" iyy=".0227" izz=".0227"
                  ixy="0" ixz="0" iyz="0"/>
+      </inertial-->
+      <inertial>
+        <mass value="0.45"/>
+        <origin xyz="0 0 0"/>
+        <inertia ixx="0.0126334824466" ixy="0.0" ixz="0.0" iyy="0.0126354793208" iyz="0.0" izz="0.000212671789931"/>
       </inertial>
     </link>
 
@@ -207,11 +238,16 @@
         <inertia ixx=".0127" iyy=".0127" izz=".0127"
                   ixy="0" ixz="0" iyz="0"/>
       </inertial-->
-      <inertial>
+      <!--inertial>
         <mass value="${small_mass}"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <inertia ixx="${small_inertial_value}" ixy="0" ixz="0"
                 iyy="${small_inertial_value}" iyz="0" izz="${small_inertial_value}"/>
+      </inertial-->
+      <inertial>
+        <mass value="0.3"/>
+        <origin xyz="0 0 0"/>
+        <inertia ixx="0.00540632283747" ixy="0.0" ixz="0.0" iyy="0.00540765408694" iyz="0.0" izz="0.000141781193287"/>
       </inertial>
     </link>
 
@@ -230,23 +266,22 @@
           <mesh filename="package://cyton_gamma_1500_description/meshes/arm/wrist.dae"/>
         </geometry>
       </visual>
-      <!--collision>
-        <origin rpy="0.0 0 -1.57" xyz=" -0.013 0.015 0.0359"/>
-        <geometry>
-          <box size="0.0001 0.0001 0.0001"/>
-        </geometry>
-      </collision-->
       <collision>
         <origin rpy="0.0 0 -1.57" xyz="-0.013 0 0.0359"/>
         <geometry>
           <box size="0.06 0.09 0.1"/>
         </geometry>
       </collision>
-      <inertial>
+      <!--inertial>
         <mass value="${small_mass}"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <inertia ixx="${small_inertial_value}" ixy="0" ixz="0"
                 iyy="${small_inertial_value}" iyz="0" izz="${small_inertial_value}"/>
+      </inertial-->
+      <inertial>
+        <mass value="0.5"/>
+        <origin xyz="0 0 0"/>
+        <inertia ixx="0.00067770806225" ixy="0.0" ixz="0.0" iyy="0.000679926811362" iyz="0.0" izz="0.000236301988812"/>
       </inertial>
     </link>
 
@@ -257,11 +292,16 @@
           <mesh filename="package://cyton_gamma_1500_description/meshes/gripper/Motor_+_Base.dae"/>
         </geometry>
       </visual>
-      <inertial>
+      <!--inertial>
         <mass value="${small_mass}"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <inertia ixx="${small_inertial_value}" ixy="0" ixz="0"
                 iyy="${small_inertial_value}" iyz="0" izz="${small_inertial_value}"/>
+      </inertial-->
+      <inertial>
+        <mass value="0.08"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <inertia ixx="0.00010843328996" ixy="0.0" ixz="0.0" iyy="0.000108788289818" iyz="0.0" izz="3.780831821e-05"/>
       </inertial>
     </link>
 
@@ -278,11 +318,16 @@
           <mesh filename="package://cyton_gamma_1500_description/meshes/gripper/right_link_front.dae"/>
         </geometry>
       </visual>
-      <inertial>
+      <!--inertial>
         <mass value="${small_mass}"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <inertia ixx="${small_inertial_value}" ixy="0" ixz="0"
                 iyy="${small_inertial_value}" iyz="0" izz="${small_inertial_value}"/>
+      </inertial-->
+      <inertial>
+        <mass value="0.03"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <inertia ixx="4.4999982e-06" ixy="0.0" ixz="0.0" iyy="4.4999982e-06" iyz="0.0" izz="4.4999982e-06"/>
       </inertial>
     </link>
 
@@ -301,11 +346,16 @@
           <mesh filename="package://cyton_gamma_1500_description/meshes/gripper/right_link_back.dae"/>
         </geometry>
       </visual>
-      <inertial>
+      <!--inertial>
         <mass value="${small_mass}"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <inertia ixx="${small_inertial_value}" ixy="0" ixz="0"
                 iyy="${small_inertial_value}" iyz="0" izz="${small_inertial_value}"/>
+      </inertial-->
+      <inertial>
+        <mass value="0.03"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <inertia ixx="4.4999982e-06" ixy="0.0" ixz="0.0" iyy="4.4999982e-06" iyz="0.0" izz="4.4999982e-06"/>
       </inertial>
     </link>
 
@@ -325,11 +375,16 @@
           <mesh filename="package://cyton_gamma_1500_description/meshes/gripper/left_front_link.dae"/>
         </geometry>
       </visual>
-      <inertial>
+      <!--inertial>
         <mass value="${small_mass}"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <inertia ixx="${small_inertial_value}" ixy="0" ixz="0"
                 iyy="${small_inertial_value}" iyz="0" izz="${small_inertial_value}"/>
+      </inertial-->
+      <inertial>
+        <mass value="0.03"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <inertia ixx="4.4999982e-06" ixy="0.0" ixz="0.0" iyy="4.4999982e-06" iyz="0.0" izz="4.4999982e-06"/>
       </inertial>
     </link>
 
@@ -349,11 +404,16 @@
           <mesh filename="package://cyton_gamma_1500_description/meshes/gripper/left_link_back.dae"/>
         </geometry>
       </visual>
-      <inertial>
+      <!--inertial>
         <mass value="${small_mass}"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <inertia ixx="${small_inertial_value}" ixy="0" ixz="0"
                 iyy="${small_inertial_value}" iyz="0" izz="${small_inertial_value}"/>
+      </inertial-->
+      <inertial>
+        <mass value="0.03"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <inertia ixx="4.4999982e-06" ixy="0.0" ixz="0.0" iyy="4.4999982e-06" iyz="0.0" izz="4.4999982e-06"/>
       </inertial>
     </link>
 
@@ -379,13 +439,19 @@
           <box size="0.045 0.025 0.169"/>
         </geometry>
       </collision>
-      <inertial>
+      <!--inertial>
         <mass value="${small_mass}"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <inertia ixx="${small_inertial_value}" ixy="0" ixz="0"
                 iyy="${small_inertial_value}" iyz="0" izz="${small_inertial_value}"/>
+      </inertial-->
+      <inertial>
+        <mass value="0.03"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <inertia ixx="7.2964970814e-05" ixy="0.0" ixz="0.0" iyy="7.6464969414e-05" iyz="0.0" izz="6.62499735e-06"/>
       </inertial>
     </link>
+
 
     <joint name="${prefix}left_link_back_to_one_finger" type="revolute">
       <parent link="${prefix}left_link_back" />
@@ -409,11 +475,16 @@
           <box size="0.045 0.07 0.165"/>
         </geometry>
       </collision>
-      <inertial>
+      <!--inertial>
         <mass value="${small_mass}"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <inertia ixx="${small_inertial_value}" ixy="0" ixz="0"
                 iyy="${small_inertial_value}" iyz="0" izz="${small_inertial_value}"/>
+      </inertial-->
+      <inertial>
+        <mass value="0.03"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <inertia ixx="7.2964970814e-05" ixy="0.0" ixz="0.0" iyy="7.6464969414e-05" iyz="0.0" izz="6.62499735e-06"/>
       </inertial>
     </link>
 
