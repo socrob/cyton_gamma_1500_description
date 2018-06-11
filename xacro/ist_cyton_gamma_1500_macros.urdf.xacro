@@ -434,7 +434,7 @@
         </geometry>
       </visual>
       <collision>
-        <origin rpy="0 -0.05 0" xyz="0.014 -0.001 -0.07"/>
+        <origin rpy="0 0 0" xyz="0.014 -0.001 -0.07"/>
         <geometry>
           <!--box size="0.045 0.025 0.169"/-->
           <box size="0.04 0.07 0.165"/>
@@ -471,7 +471,7 @@
         </geometry>
       </visual>
       <collision>
-        <origin rpy="0 0.1 0" xyz="-0.02 0.024 -0.07"/>
+        <origin rpy="0 0 0" xyz="-0.02 0.024 -0.07"/>
         <geometry>
           <box size="0.04 0.07 0.165"/>
         </geometry>
@@ -643,10 +643,10 @@
           <gripper_link>${prefix}two_fingers</gripper_link>
         </arm>
         <forces_angle_tolerance>100</forces_angle_tolerance>
-        <update_rate>4</update_rate>
+        <update_rate>0.5</update_rate>
         <grip_count_threshold>1</grip_count_threshold>
         <max_grip_count>8</max_grip_count>
-        <release_tolerance>0.003</release_tolerance>
+        <release_tolerance>0.005</release_tolerance>
         <disable_collisions_on_attach>false</disable_collisions_on_attach>
         <contact_topic>__default_topic__</contact_topic>
       </plugin>
