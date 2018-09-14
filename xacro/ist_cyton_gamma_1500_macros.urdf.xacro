@@ -8,8 +8,8 @@
   <xacro:property name="camera_size_link" value="0.008" />
 
   <!-- gripper joint limits -->
-  <xacro:property name="gripper_lower_limit" value="-1.5" />
-  <xacro:property name="gripper_upper_limit" value="-0.1" />
+  <xacro:property name="gripper_lower_limit" value="0.3" />
+  <xacro:property name="gripper_upper_limit" value="3.14" />
   <xacro:property name="gripper_angular_offset" value="1.75" />
 
   <!-- small mass that can be set to all links -->
@@ -311,7 +311,54 @@
       <origin xyz="0 0.022 0"/>
     </joint>
 
-    <link name="${prefix}right_link_front">
+
+
+
+
+    <link name="${prefix}gear">
+      <visual>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <mesh filename="package://cyton_gamma_1500_description/meshes/gripper/gear.dae"/>
+        </geometry>
+      </visual>
+
+
+
+      <!--inertial>
+        <mass value="${small_mass}"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <inertia ixx="${small_inertial_value}" ixy="0" ixz="0"
+                iyy="${small_inertial_value}" iyz="0" izz="${small_inertial_value}"/>
+      </inertial -->
+
+
+    <inertial>
+        <mass value="0.03"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <inertia ixx="4.4999982e-06" ixy="0.0" ixz="0.0" iyy="4.4999982e-06" iyz="0.0" izz="4.4999982e-06"/>
+      </inertial>
+    </link> 
+
+
+
+
+    <joint name="${prefix}gripper_joint" type="revolute">
+      <parent link="${prefix}Motor_+_Base" />
+      <child link="${prefix}gear" />
+      <origin xyz="0 -0.005 0" rpy="0 ${gripper_angular_offset} 0" />
+    <limit effort="1000.0" lower="${gripper_lower_limit}" upper="${gripper_upper_limit}" velocity="0.5"/>
+      
+      <axis xyz="0 1 0" />
+    </joint>  
+
+
+
+
+
+
+````
+ <link name="${prefix}right_link_front">
       <visual>
         <origin rpy="0 -0.6 0" xyz="0 0 0"/>
         <geometry>
@@ -331,13 +378,22 @@
       </inertial>
     </link>
 
-    <joint name="${prefix}gripper_joint" type="revolute">
+    <joint name="${prefix}motor_base_to_right_link_front" type="revolute">
       <parent link="${prefix}Motor_+_Base" />
       <child link="${prefix}right_link_front" />
-      <origin xyz="0 0 0" rpy="0 ${gripper_angular_offset} 0" />
+      <origin xyz="0.00515 0 0.0201" rpy="0 ${gripper_angular_offset} 0" />
       <limit effort="1000.0" lower="${gripper_lower_limit}" upper="${gripper_upper_limit}" velocity="0.5"/>
+      <mimic joint="${prefix}gripper_joint" multiplier="-0.5" offset="0"/>
       <axis xyz="0 1 0" />
     </joint>
+
+
+
+
+```
+
+
+
 
     <link name="${prefix}right_link_back">
       <visual>
@@ -362,15 +418,15 @@
     <joint name="${prefix}motor_base_to_right_link_back" type="revolute">
       <parent link="${prefix}Motor_+_Base" />
       <child link="${prefix}right_link_back" />
-      <origin xyz="0.025 -0.05 0.015" rpy="0 ${gripper_angular_offset} 0" />
+      <origin xyz="0.0301 -0.0114 0.0302" rpy="0 ${gripper_angular_offset} 0" />
       <axis xyz="0 1 0" />
       <limit effort="1000.0" lower="${gripper_lower_limit}" upper="${gripper_upper_limit}" velocity="0.5"/>
-      <mimic joint="${prefix}gripper_joint" multiplier="1" offset="0"/>
+      <mimic joint="${prefix}gripper_joint" multiplier="-0.5" offset="0"/>
     </joint>
 
     <link name="${prefix}left_link_front">
       <visual>
-        <origin rpy="0 2.842 0" xyz="0 0 0"/>
+        <origin rpy="0 2.742 0" xyz="0 0 0"/>
         <geometry>
           <mesh filename="package://cyton_gamma_1500_description/meshes/gripper/left_front_link.dae"/>
         </geometry>
@@ -391,10 +447,10 @@
     <joint name="${prefix}motor_base_to_left_link_front" type="revolute">
       <parent link="${prefix}Motor_+_Base" />
       <child link="${prefix}left_link_front" />
-      <origin xyz="-0.024 -0.001 0.021" rpy="0 -${gripper_angular_offset} 0" />
+      <origin xyz="-0.0246 -0.001 0.020" rpy="0 -${gripper_angular_offset} 0" />
       <axis xyz="0 1 0" />
       <limit effort="1000.0" lower="${-gripper_upper_limit}" upper="${-gripper_lower_limit}" velocity="0.5"/>
-      <mimic joint="${prefix}gripper_joint" multiplier="-1" offset="0"/>
+      <mimic joint="${prefix}gripper_joint" multiplier="0.5" offset="0"/>
     </joint>
 
     <link name="${prefix}left_link_back">
@@ -420,21 +476,21 @@
     <joint name="${prefix}motor_base_to_left_link_back" type="revolute">
       <parent link="${prefix}Motor_+_Base" />
       <child link="${prefix}left_link_back" />
-      <origin xyz="-0.049 -0.017 0.0308" rpy="0 -${gripper_angular_offset} 0" />
+      <origin xyz="-0.0495 -0.017 0.0301" rpy="0 -${gripper_angular_offset} 0" />
       <axis xyz="0 1 0" />
       <limit effort="1000.0" lower="${-gripper_upper_limit}" upper="${-gripper_lower_limit}" velocity="0.5"/>
-      <mimic joint="${prefix}gripper_joint" multiplier="-1" offset="0"/>
+      <mimic joint="${prefix}gripper_joint" multiplier="0.5" offset="0"/>
     </joint>
 
     <link name="${prefix}one_finger">
       <visual>
-        <origin rpy="0 0.003 0" xyz="0 0 0"/>
+        <origin rpy="0 -0.04 0" xyz="0 0 0"/>
         <geometry>
           <mesh filename="package://cyton_gamma_1500_description/meshes/gripper/one_finger.dae"/>
         </geometry>
       </visual>
       <collision>
-        <origin rpy="0 -0.05 0" xyz="0.014 -0.001 -0.07"/>
+        <origin rpy="0 -0.002 0" xyz="0.014 -0.001 -0.07"/>
         <geometry>
           <!--box size="0.045 0.025 0.169"/-->
           <box size="0.04 0.07 0.165"/>
@@ -442,7 +498,7 @@
       </collision>
       <!--inertial>
         <mass value="${small_mass}"/>
-        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>nger
         <inertia ixx="${small_inertial_value}" ixy="0" ixz="0"
                 iyy="${small_inertial_value}" iyz="0" izz="${small_inertial_value}"/>
       </inertial-->
@@ -457,15 +513,15 @@
     <joint name="${prefix}left_link_back_to_one_finger" type="revolute">
       <parent link="${prefix}left_link_back" />
       <child link="${prefix}one_finger" />
-      <origin xyz="-0.06 -0.001 0.0" rpy="0 ${gripper_angular_offset} 0" />
+      <origin xyz="-0.056 -0.001 -0.00245" rpy="0 ${gripper_angular_offset} 0" />
       <axis xyz="0 1 0" />
       <limit effort="1000.0" lower="${gripper_lower_limit}" upper="${gripper_upper_limit}" velocity="0.5"/>
-      <mimic joint="${prefix}gripper_joint" multiplier="1" offset="0"/>
+      <mimic joint="${prefix}gripper_joint" multiplier="-0.5" offset="0"/>
     </joint>
 
     <link name="${prefix}two_fingers">
       <visual>
-        <origin rpy="0 0.24 0" xyz="0 0 0"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
         <geometry>
           <mesh filename="package://cyton_gamma_1500_description/meshes/gripper/two_fingers.dae"/>
         </geometry>
@@ -504,10 +560,10 @@
     <joint name="${prefix}right_link_back_to_two_fingers" type="revolute">
       <parent link="${prefix}right_link_back" />
       <child link="${prefix}two_fingers" />
-      <origin xyz="0.06 -0.02 0.0" rpy="0 -${gripper_angular_offset} 0" />
+      <origin xyz="0.056 -0.0285 0.0" rpy="0 -${gripper_angular_offset} 0" />
       <axis xyz="0 1 0" />
       <limit effort="1000.0" lower="${-gripper_upper_limit}" upper="${-gripper_lower_limit}" velocity="0.5"/>
-      <mimic joint="${prefix}gripper_joint" multiplier="-1" offset="0"/>
+      <mimic joint="${prefix}gripper_joint" multiplier="0.5" offset="0"/>
     </joint>
 
     <link name="${prefix}virtual_checkerboard">
